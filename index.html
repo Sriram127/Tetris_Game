@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tetris Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="game" aria-label="Tetris game">
+      <header class="header">
+        <div>
+          <p class="eyebrow">Puzzle Arcade</p>
+          <h1>Tetris</h1>
+        </div>
+        <div class="actions">
+          <button id="pauseBtn" class="icon-btn" type="button" aria-label="Pause game" title="Pause">II</button>
+          <button id="restartBtn" class="icon-btn" type="button" aria-label="Restart game" title="Restart">&#8635;</button>
+        </div>
+      </header>
+
+      <div class="layout">
+        <div class="board-wrap">
+          <canvas id="board" width="300" height="600" aria-label="Tetris board"></canvas>
+          <div id="overlay" class="overlay">
+            <h2>Tetris</h2>
+            <p>Stack blocks and clear lines.</p>
+            <button id="startBtn" class="primary-btn" type="button">Start Game</button>
+          </div>
+        </div>
+
+        <aside class="side-panel" aria-label="Game information">
+          <div class="preview">
+            <span>Next</span>
+            <canvas id="next" width="120" height="120" aria-label="Next piece"></canvas>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <span>Score</span>
+              <strong id="score">0</strong>
+            </div>
+            <div class="stat">
+              <span>Lines</span>
+              <strong id="lines">0</strong>
+            </div>
+            <div class="stat">
+              <span>Level</span>
+              <strong id="level">1</strong>
+            </div>
+            <div class="stat">
+              <span>Best</span>
+              <strong id="best">0</strong>
+            </div>
+          </div>
+
+          <div class="toggles">
+            <label>
+              <input id="ghostToggle" type="checkbox" checked>
+              <span>Ghost piece</span>
+            </label>
+            <label>
+              <input id="soundToggle" type="checkbox" checked>
+              <span>Sound</span>
+            </label>
+          </div>
+
+          <div class="status" aria-live="polite">
+            <span>State</span>
+            <strong id="statusText">Ready</strong>
+          </div>
+        </aside>
+      </div>
+
+      <div class="touch-controls" aria-label="Touch controls">
+        <button type="button" data-action="left" aria-label="Move left">&#9664;</button>
+        <button type="button" data-action="rotate" aria-label="Rotate">&#8635;</button>
+        <button type="button" data-action="right" aria-label="Move right">&#9654;</button>
+        <button type="button" data-action="down" aria-label="Soft drop">&#9660;</button>
+        <button type="button" data-action="drop" aria-label="Hard drop">Drop</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
